@@ -1,0 +1,35 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.claro.cc"
+        },
+        "jhipsterVersion": "5.8.2",
+        "applicationType": "monolith",
+        "baseName": "contactchallenge",
+        "packageName": "com.claro.cc",
+        "packageFolder": "com/claro/cc",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "h2Disk",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "ODI3MTA5ZGU5ZDc1Y2FjN2QwZjc3OGE4YjQ1MjQ1ZTdlOWMzOTFhZTNjZDQ3YzI3YThhZGZlNTQ3M2E4ZDMxOTNkMWZjM2U5OTFlY2YwMzc0NDFmNmUxNTMxY2QwMjgxZTNkN2Y5ZWY5MzI4ZTY0OTMyYTQxNWFiNjc4ZTk5YjM=",
+        "clientFramework": "angularX",
+        "useSass": false,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": false
+    }
+}
