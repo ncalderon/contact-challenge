@@ -1,0 +1,64 @@
+DEFAULT_MIN_NAME_LENGTH = 4
+DEFAULT_MAX_NAME_LENGTH = 64
+
+DEFAULT_DESC_MAX_LENGTH = 256
+
+enum PersonDocumentType {
+	ID, PASSPORT
+}
+
+enum Gender {
+	MALE, FEMALE
+}
+
+entity Person {
+    fullname String required,
+    documentNumber String required,
+    documentType PersonDocumentType required,
+    birthday LocalDate required,
+    gender Gender required
+}
+
+
+
+enum PersonContactType {
+	MAIN, PHONE, CELLPHONE, MAIL, FAX, OTHER
+}
+
+entity PersonContact {
+	type PersonContactType required,
+    value String required,
+
+}
+
+enum AddressType {
+	MAIN, HOME, WORK, OTHER
+}
+
+entity Address {
+	type AddressType required,
+    country String required minlength(DEFAULT_MIN_NAME_LENGTH) maxlength(DEFAULT_MAX_NAME_LENGTH),
+    state String required minlength(DEFAULT_MIN_NAME_LENGTH) maxlength(DEFAULT_MAX_NAME_LENGTH),
+    city String required minlength(DEFAULT_MIN_NAME_LENGTH) maxlength(DEFAULT_MAX_NAME_LENGTH),
+    neighborhood String required minlength(DEFAULT_MIN_NAME_LENGTH) maxlength(DEFAULT_MAX_NAME_LENGTH),
+    street String required minlength(DEFAULT_MIN_NAME_LENGTH) maxlength(DEFAULT_MAX_NAME_LENGTH),
+    fullAddress String required
+}
+
+relationship OneToOne {
+	Person{user(login)} to User
+}
+
+relationship OneToMany {
+	Person to Address{person(fullname)},
+    Person to PersonContact{person(fullname)}
+}
+
+// Set pagination options
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl

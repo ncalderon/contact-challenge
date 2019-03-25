@@ -1,0 +1,73 @@
+{
+    "name": "Person",
+    "fields": [
+        {
+            "fieldName": "fullname",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "documentNumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "documentType",
+            "fieldType": "PersonDocumentType",
+            "fieldValues": "ID,PASSPORT",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "birthday",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "Gender",
+            "fieldValues": "MALE,FEMALE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "person",
+            "relationshipName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "address",
+            "otherEntityRelationshipName": "person",
+            "relationshipName": "address"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "personContact",
+            "otherEntityRelationshipName": "person",
+            "relationshipName": "personContact"
+        }
+    ],
+    "changelogDate": "20190320180557",
+    "entityTableName": "person",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

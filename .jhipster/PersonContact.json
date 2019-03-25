@@ -1,0 +1,38 @@
+{
+    "name": "PersonContact",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "PersonContactType",
+            "fieldValues": "MAIN,PHONE,CELLPHONE,MAIL,FAX,OTHER",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "person",
+            "otherEntityRelationshipName": "personContact",
+            "relationshipName": "person",
+            "otherEntityField": "fullname"
+        }
+    ],
+    "changelogDate": "20190320180558",
+    "entityTableName": "person_contact",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

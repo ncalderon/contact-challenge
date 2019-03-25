@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="personContact">
+            <h2><span>Person Contact</span> {{personContact.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{personContact.type}}</span>
+                </dd>
+                <dt><span>Value</span></dt>
+                <dd>
+                    <span>{{personContact.value}}</span>
+                </dd>
+                <dt><span>Person</span></dt>
+                <dd>
+                    <div *ngIf="personContact.personId">
+                        <a [routerLink]="['/person', personContact.personId, 'view']">{{personContact.personFullname}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/person-contact', personContact.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

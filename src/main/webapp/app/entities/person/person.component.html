@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span>People</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-person" [routerLink]="['/person/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Person
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="people">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fullname"><span>Fullname</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="documentNumber"><span>Document Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="documentType"><span>Document Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="birthday"><span>Birthday</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gender"><span>Gender</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userLogin"><span>User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let person of people ;trackBy: trackId">
+                <td><a [routerLink]="['/person', person.id, 'view' ]">{{person.id}}</a></td>
+                <td>{{person.fullname}}</td>
+                <td>{{person.documentNumber}}</td>
+                <td>{{person.documentType}}</td>
+                <td>{{person.birthday | date:'mediumDate'}}</td>
+                <td>{{person.gender}}</td>
+                <td>
+                    {{person.userLogin}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/person', person.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/person', person.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'person', { outlets: { popup: person.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="people && people.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
