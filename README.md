@@ -40,5 +40,22 @@ La aplicacion angular se encuentra en la carpeta `src/main/webapp/app`.
 
 Para acceder a las vistas de estos componentes ir a Entities\Person en el Navbar.
 
-**Observaciones**
-Los componentes `PersonUpdateComponent` y `PersonDetailComponent` tiene la configuracion basica e inicial , es **MUY** recomendable no cambiar dicha configuracion. Las cosas que puedan ser cambiadas de esa configuracion base tendran un **comentario de "OPCIONAL" arriba.**
+**NOTA MUY IMPORTANTE**
+
+-   Los componentes `PersonUpdateComponent` y `PersonDetailComponent` tiene la configuracion basica e inicial , es **MUY** recomendable no cambiar dicha configuracion. Las cosas que puedan ser cambiadas de esa configuracion base tendran un **comentario de "OPCIONAL" arriba.**
+-   UTILIZAR GIT PARA EL CONTROL DE VERSIONES
+
+### Opcional
+
+Luego de crear la implementacion de la interfaz 'PersonInfoService' te daras cuenta que la misma no tiene sus pruebas unitarias. La creacion de las pruebas unitarias de este servicio aunque no es obligatorio, sera valorada como un extra importante a la hora de calificar tu esfuerzo en la prueba.
+
+### Como enviar la prueba luego de completarla?
+
+Subir el proyecto a [github](www.github.com) y enviar el link del repositorio via correo electronico.
+
+** NOTA **
+Se espera ver en el repositorio, un commit inicial con el codigo intacto tal como se envio, y N commits con los cambios que fueron necesarios para completar la prueba.
+
+## MUCHA SUERTE
+
+Si algo no funciona como esta comentado aqui o no se entiende, nos pueden contactar a traves de la via de contacto que ya hemos estado utilizando.
