@@ -2,8 +2,6 @@
 
 ContactChallenge es una aplicacion generada por [JHipster](https://www.jhipster.tech/)(Ver JHipster README en el repositorio), la cual esta en desarrollo y requiere tu expertise para completar varias tareas pendientes tanto en el **Backend** como en el **Frontend**.
 
-Descargar la aplicacion base desde el repositrio [contact-challenge-git-repository](https://github.com/ncalderon/contact-challenge)
-
 ## Evaluacion
 
 **Se evaluara la entrega en terminos de porcentaje de cumplimiento, calidad y organizacion del codigo.**
